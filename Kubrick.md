@@ -1,20 +1,25 @@
 # Preparing a development Environement on Kubrick
 
-## Contents
+In this tutorial, I walk through how to setup the Kubrick cluster to start prototyping and deploying your tensorflow application.
+
+# Contents
 [1. Why use anaconda?](#1-why-use-anaconda)
 
 [2. Setting up Anaconda](#2-Setting-up-Anaconda)
 
 [3. Running a Remote Jupyter Notebook on host](#3-running-a-remote-jupyter-notebook-on-host)
 
-### 1. Why use anaconda?
-I run into a number of problems installing and running tensorflow in the preinstalled python environment on Kubrick. 
+## 1. Why use anaconda?
+I ran into a number of problems installing and running tensorflow in the preinstalled python environment on Kubrick. 
+
 To name a few:
+
 + Just installing `tensorflow` with `pip install tensorflow` was straight forward. But this version did not 
 make use of GPUs on Kubrick.
+
 + So, I tried `tensorflow-gpu` with `pip install tensorflow-gpu`. But, this is where the problems started. 
 This installed tensorflow-gpu, however, I ran into a number of issues with linking `libcublas`, `cudatoolkit`, and `cudnn`. 
-This is what I got when doing `import tensorflow`
+This is what I got when doing `import tensorflow`:
 
 ```sh
 ---------------------------------------------------------------------------
@@ -97,9 +102,9 @@ above this error message when asking for help.
 + So, I tried to manually install `cudatoolkit` and `cudnn`. But, it turns out the versions don't match those required by `tensorflow`. Specifically, we get `cudatoolkit 10.1.168-0` but we need `10.0.130-0` and `cudnn 7.6.0-cuda10.1_0` and we need `7.6.0-cuda10.0_0`
 + I must admit, I may be going about wrongly with this, but google searches didn't produce anything better. But, this seems to be a common [issue](https://github.com/tensorflow/tensorflow/issues/26182)
 
-### 2. Setting up Anaconda
+## 2. Setting up Anaconda
 
-Well, just use miniconda. 
+Well, just let's just use miniconda. It just works. Here's what we do:
 
 1. From the root directory, make a folder for downloads 
 ```sh
@@ -142,4 +147,4 @@ Using TensorFlow backend.
 1.13.1
 ```
 
-### 3. Running a Remote Jupyter Notebook on host
+## 3. Running a Remote Jupyter Notebook on host
