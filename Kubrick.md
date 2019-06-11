@@ -115,14 +115,15 @@ Well, just use miniconda.
 ...
 [user@kubrick:~/Downloads] which python 
 /home/user/miniconda3/bin/python
+[user@kubrick:~/Downloads] cd ~
 ```
 
 5. Install Tensorflow, Keras, ipython, and jupyter all using conda
 ```sh
-[user@kubrick:~/Downloads] conda install tensorflow-gpu
-[user@kubrick:~/Downloads] conda install keras
-[user@kubrick:~/Downloads] conda install ipython
-[user@kubrick:~/Downloads] conda install jupyter
+[user@kubrick:~] conda install tensorflow-gpu
+[user@kubrick:~] conda install keras
+[user@kubrick:~] conda install ipython
+[user@kubrick:~] conda install jupyter
 ```
 
 6. Check to see if Keras and Tensorflow works
