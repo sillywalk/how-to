@@ -104,17 +104,17 @@ Using TensorFlow backend.
 
 This is a nice to have. Say you want to remotely connect to Kubrick and use jupyter notebook to develop on your local machine, there's a simple way to do that.
 
-1. First, install `jupyter` on *both* Kubrick and your local machine
+1. **[Both On Kubrick & Local]** First, install `jupyter` on *both* Kubrick and your local machine
 ```sh
 [user@kubrick:~] conda install jupyter
 ```
 
-2. You'll need to initialize jupyter configurations file. For this we need `jupyter notebook --generate-config`. This command will create the Jupyter folder (at `/home/user/.jupyter`) if necessary, and create notebook configuration file, `jupyter_notebook_config.py`, in this directory.
+2. **[On Kubrick]** You'll need to initialize jupyter configurations file. For this we need `jupyter notebook --generate-config`. This command will create the Jupyter folder (at `/home/user/.jupyter`) if necessary, and create notebook configuration file, `jupyter_notebook_config.py`, in this directory.
 ```sh
 [user@kubrick:~/tf-notebooks] jupyter notebook --generate-config
 ```
 
-3. The first time you log-in, the notebook server may ask you for a password. I recommend setting this up. Use `jupyter notebook password`. You'll be prompted for a username and password. Entering it will save a hashed password in your `/home/user/.jupyter/jupyter_notebook_config.json`.
+3. **[On Kubrick]** The first time you log-in, the notebook server may ask you for a password. I recommend setting this up. Use `jupyter notebook password`. You'll be prompted for a username and password. Entering it will save a hashed password in your `/home/user/.jupyter/jupyter_notebook_config.json`.
 ```sh
 [user@kubrick:~] jupyter notebook password
 Enter password:  ****
@@ -122,17 +122,17 @@ Verify password: ****
 [NotebookPasswordApp] Wrote hashed password to /Users/you/.jupyter/jupyter_notebook_config.json
 ```
 
-4. Next, *on kubrick* navigate to the directory where you park all your notebooks. Then, run the following command. *Note: This terminal must be kep open.*
+4. **[On Kubrick]** Next, *on kubrick* navigate to the directory where you park all your notebooks. Then, run the following command. *Note: This terminal must be kept open.*
 ```sh
 [user@kubrick:~] mkdir tf-notebooks && cd tf-notebooks
 [user@kubrick:~/tf-notebooks] jupyter notebook --no-browser --port=8889
 ```
 
-5. Forward that port to a local port on *your machine*. For this, **on your local machine**, do the following
+5. **[On Local machine]** Forward that port to a local port on *your machine*. For this, *on your local machine*, do the following
 ```sh
 [localmachine: ~] ssh -N -f -L localhost:8888:localhost:8889 username@kubrick.cs.columbia.edu
 ```
 
-That's it. You're all set. Open up a browser and go to `localhost:8888`. You'll be asked for the password you setup, and then you'll land in the folder on *kubrick* with all the notebooks. Code away....
+6. **[On Local machine]** That's it. You're all set. Open up a browser and go to `localhost:8888`. You'll be asked for the password you setup, and then you'll land in the folder on *kubrick* with all the notebooks. Code away....
 
 
