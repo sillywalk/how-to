@@ -1,6 +1,8 @@
 # Setting up Anaconda (or Miniconda) Locally
 
-## But Why?
+## Contents
+
+### 1. Why use anaconda?
 I run into a number of problems installing and running tensorflow in the preinstalled python environment on Kubrick. 
 To name a few:
 + Just installing `tensorflow` with `pip install tensorflow` was straight forward. But this version did not 
@@ -90,7 +92,7 @@ above this error message when asking for help.
 + So, I tried to manually install `cudatoolkit` and `cudnn`. But, it turns out the versions don't match those required by `tensorflow`. Specifically, we get `cudatoolkit 10.1.168-0` but we need `10.0.130-0` and `cudnn 7.6.0-cuda10.1_0` and we need `7.6.0-cuda10.0_0`
 + I must admit, I may be going about wrongly with this, but google searches didn't produce anything better. But, this seems to be a common [issue](https://github.com/tensorflow/tensorflow/issues/26182)
 
-## Alternative setup
+### 2. Alternative setup
 
 Well, just use miniconda. 
 
@@ -134,3 +136,5 @@ Using TensorFlow backend.
 [user@kubrick:~] python -c "import tensorflow as tf; print(tf.__version__)"
 1.13.1
 ```
+
+### 3. Running a Remote Jupyter Notebook on host
