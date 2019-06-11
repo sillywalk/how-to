@@ -52,8 +52,8 @@ See https://www.tensorflow.org/install/errors
 for some common reasons and solutions.  Include the entire stack trace
 above this error message when asking for help.
 ```
-+ So, I tried to manually install `cudatoolkit` and `cudnn`. But, it turns out the versions don't match those required by `tensorflow`. Specifically, we get `cudatoolkit 10.1.168-0` but we need `10.0.130-0` and `cudnn 7.6.0-cuda10.1_0` and we need `7.6.0-cuda10.0_0`
-+ I must admit, I may be going about wrongly with this, but google searches didn't produce anything better. But, this seems to be a common [issue](https://github.com/tensorflow/tensorflow/issues/26182)
++ So, I tried to manually install `cudatoolkit` and `cudnn`. But, it turns out (a) they are not in pip, (b) If we compile from source, the versions don't match those required by `tensorflow`. Specifically, we get `cudatoolkit 10.1.168-0` but it turns out we need `10.0.130-0` and we get `cudnn 7.6.0-cuda10.1_0` and we need `7.6.0-cuda10.0_0`
++ I must admit, I may be going about this wrongly, but google searches didn't produce anything better. And, this seems to be a commonly occuring [issue](https://github.com/tensorflow/tensorflow/issues/26182)
 
 ## 2. Setting up Anaconda
 
@@ -101,3 +101,38 @@ Using TensorFlow backend.
 ```
 
 ## 3. Running a Remote Jupyter Notebook on host
+
+This is a nice to have. Say you want to remotely connect to Kubrick and use jupyter notebook to develop on your local machine, there's a simple way to do that.
+
+1. First, install `jupyter` on *both* Kubrick and your local machine
+```sh
+[user@kubrick:~] conda install jupyter
+```
+
+2. You'll need to initialize jupyter configurations file. For this we need `jupyter notebook --generate-config`. This command will create the Jupyter folder (at `/home/user/.jupyter`) if necessary, and create notebook configuration file, `jupyter_notebook_config.py`, in this directory.
+```sh
+[user@kubrick:~/tf-notebooks] jupyter notebook --generate-config
+```
+
+3. The first time you log-in, the notebook server may ask you for a password. I recommend setting this up. Use `jupyter notebook password`. You'll be prompted for a username and password. Entering it will save a hashed password in your `/home/user/.jupyter/jupyter_notebook_config.json`.
+```sh
+[user@kubrick:~] jupyter notebook password
+Enter password:  ****
+Verify password: ****
+[NotebookPasswordApp] Wrote hashed password to /Users/you/.jupyter/jupyter_notebook_config.json
+```
+
+4. Next, *on kubrick* navigate to the directory where you park all your notebooks. Then, run the following command. *Note: This terminal must be kep open.*
+```sh
+[user@kubrick:~] mkdir tf-notebooks && cd tf-notebooks
+[user@kubrick:~/tf-notebooks] jupyter notebook --no-browser --port=8889
+```
+
+5. Forward that port to a local port on *your machine*. For this, **on your local machine**, do the following
+```sh
+[localmachine: ~] ssh -N -f -L localhost:8888:localhost:8889 username@kubrick.cs.columbia.edu
+```
+
+That's it. You're all set. Open up a browser and go to `localhost:8888`. You'll be asked for the password you setup, and then you'll land in the folder on *kubrick* with all the notebooks. Code away....
+
+
