@@ -1,9 +1,11 @@
 # Preparing a development Environement on Kubrick
 
 ## Contents
-(1. Why use anaconda?)[https://github.com/sillywalk/how-tos/blob/master/Kubrick.md#1-why-use-anaconda]
-(2. Setting up Anaconda)[]
-(3. Running a Remote Jupyter Notebook on host)[https://github.com/sillywalk/how-tos/blob/master/Kubrick.md#3-running-a-remote-jupyter-notebook-on-host]
+[1. Why use anaconda?](#1-why-use-anaconda)
+
+[2. Setting up Anaconda](#2-Setting-up-Anaconda)
+
+[3. Running a Remote Jupyter Notebook on host](#3-running-a-remote-jupyter-notebook-on-host)
 
 ### 1. Why use anaconda?
 I run into a number of problems installing and running tensorflow in the preinstalled python environment on Kubrick. 
