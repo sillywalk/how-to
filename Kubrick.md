@@ -67,15 +67,15 @@ ImportError                               Traceback (most recent call last)
      76 # pylint: enable=wildcard-import,g-import-not-at-top,unused-import,line-too-long
 
 ImportError: Traceback (most recent call last):
-  File "/home/rkrsn/miniconda3/lib/python3.7/site-packages/tensorflow/python/pywrap_tensorflow.py", line 58, in <module>
+  File "/home/user/miniconda3/lib/python3.7/site-packages/tensorflow/python/pywrap_tensorflow.py", line 58, in <module>
     from tensorflow.python.pywrap_tensorflow_internal import *
-  File "/home/rkrsn/miniconda3/lib/python3.7/site-packages/tensorflow/python/pywrap_tensorflow_internal.py", line 28, in <module>
+  File "/home/user/miniconda3/lib/python3.7/site-packages/tensorflow/python/pywrap_tensorflow_internal.py", line 28, in <module>
     _pywrap_tensorflow_internal = swig_import_helper()
-  File "/home/rkrsn/miniconda3/lib/python3.7/site-packages/tensorflow/python/pywrap_tensorflow_internal.py", line 24, in swig_import_helper
+  File "/home/user/miniconda3/lib/python3.7/site-packages/tensorflow/python/pywrap_tensorflow_internal.py", line 24, in swig_import_helper
     _mod = imp.load_module('_pywrap_tensorflow_internal', fp, pathname, description)
-  File "/home/rkrsn/miniconda3/lib/python3.7/imp.py", line 242, in load_module
+  File "/home/user/miniconda3/lib/python3.7/imp.py", line 242, in load_module
     return load_dynamic(name, filename, file)
-  File "/home/rkrsn/miniconda3/lib/python3.7/imp.py", line 342, in load_dynamic
+  File "/home/user/miniconda3/lib/python3.7/imp.py", line 342, in load_dynamic
     return _load(spec)
 ImportError: libcublas.so.10.0: cannot open shared object file: No such file or directory
 
