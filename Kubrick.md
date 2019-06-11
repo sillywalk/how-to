@@ -127,7 +127,6 @@ Well, just use miniconda.
 
 6. Check to see if Keras and Tensorflow works
 ```sh
-% 
 [user@kubrick:~] python -c "import keras as kr; print(kr.__version__)"
 Using TensorFlow backend.
 2.2.4
